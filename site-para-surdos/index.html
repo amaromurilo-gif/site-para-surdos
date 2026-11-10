@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Acessível e Confortável - Comunidade Surda</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Atalho Invisível para Pular Navegação -->
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+  <!-- Linha Guia de Leitura -->
+  <div id="reading-guide" aria-hidden="true"></div>
+
+  <!-- Barra de Ferramentas de Acessibilidade -->
+  <aside class="accessibility-toolbar" aria-label="Controles de Acessibilidade">
+    <div class="toolbar-container">
+      <span class="toolbar-title">Ferramentas de Acessibilidade:</span>
+      <div class="toolbar-buttons">
+        <button id="btn-contrast" class="btn-tool" aria-pressed="false">
+          <span>👁️</span> Alto Contraste
+        </button>
+        <button id="btn-calm" class="btn-tool" aria-pressed="false">
+          <span>🌙</span> Modo Calmo
+        </button>
+        <button id="btn-font-increase" class="btn-tool" title="Aumentar texto">
+          <span>A+</span> Aumentar Fonte
+        </button>
+        <button id="btn-font-decrease" class="btn-tool" title="Diminuir texto">
+          <span>A-</span> Reduzir Fonte
+        </button>
+        <button id="btn-motion" class="btn-tool" aria-pressed="false">
+          <span>🛑</span> Reduzir Movimento
+        </button>
+        <button id="btn-guide" class="btn-tool" aria-pressed="false">
+          <span>📏</span> Guia de Leitura
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <header role="banner">
+    <h1>Portal Conforto & Acessibilidade</h1>
+    <p>Informação direta, previsível e sem sobrecarga sensorial.</p>
+  </header>
+
+  <main id="conteudo-principal" role="main" tabIndex="-1">
+
+    <!-- Bloco Informativo de Previsibilidade -->
+    <div class="predictability-card" aria-label="Informações sobre a leitura desta página">
+      <div class="predictability-icon" aria-hidden="true">⏱️</div>
+      <div>
+        <h3>O que esperar desta página:</h3>
+        <p><strong>Tempo estimado de leitura:</strong> 3 minutos</p>
+        <p><strong>Tipo de conteúdo:</strong> Texto estático e formulário visual (Sem áudios automáticos, sem vídeos com autoplay e sem elementos piscantes).</p>
+      </div>
+    </div>
+
+    <!-- Cartão com Aviso Amigável para Pausa -->
+    <div class="pause-card" role="note" aria-label="Aviso de conforto sensorial">
+      <div>
+        <strong>Sinta-se confortável:</strong> Se a leitura causar cansaço visual, faça uma pausa. Seus olhos e sua mente agradecem! 🧘‍♀️
+      </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <section>
+      <h2>Sobre a Experiência Visual e Surdez</h2>
+      <p class="content-paragraph">
+        Para muitas pessoas surdas e sinalizadoras de Libras, a navegação na web deve ser altamente visual, clara e sem ruídos desnecessários. Animações excessivas ou mudanças inesperadas de layout podem gerar desconforto.
+      </p>
+      <p class="content-paragraph">
+        Priorizar o conforto sensorial significa oferecer autonomia: permitir que o usuário ajuste o tamanho dos textos, ative guias visuais de leitura e escolha o esquema de cores que mais lhe atrai.
+      </p>
+      <p class="content-paragraph">
+        Todos os conteúdos foram organizados de forma previsível para garantir que a experiência de leitura seja tranquila e sem interrupções indesejadas.
+      </p>
+    </section>
+
+    <!-- Formulário de Contato com Validação Acessível -->
+    <section>
+      <h2>Fale Conosco (Canais Visuais)</h2>
+      <form id="contact-form" novalidate>
+        
+        <div class="form-group">
+          <label for="nome">Nome Completo *</label>
+          <input type="text" id="nome" name="nome" required aria-describedby="help-nome error-nome">
+          <span id="help-nome" class="help-text">Digite seu nome e sobrenome.</span>
+          <span id="error-nome" class="error-message" role="alert">Por favor, informe seu nome.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail *</label>
+          <input type="email" id="email" name="email" required aria-describedby="help-email error-email">
+          <span id="help-email" class="help-text">Usaremos este e-mail apenas para responder sua mensagem.</span>
+          <span id="error-email" class="error-message" role="alert">Informe um e-mail válido (exemplo@dominio.com).</span>
+        </div>
+
+        <div class="form-group">
+          <label for="mensagem">Mensagem *</label>
+          <textarea id="mensagem" name="mensagem" rows="4" required aria-describedby="help-mensagem error-mensagem"></textarea>
+          <span id="help-mensagem" class="help-text">Escreva sua dúvida ou sugestão.</span>
+          <span id="error-mensagem" class="error-message" role="alert">Escreva uma mensagem antes de enviar.</span>
+        </div>
+
+        <button type="submit" class="btn-submit">Enviar Mensagem</button>
+
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Plugin VLibras para Acessibilidade em Língua Brasileira de Sinais -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+  <footer>
+    <p>&copy; 2026 Portal Acessível. Projetado com foco em acessibilidade e conforto visual.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
